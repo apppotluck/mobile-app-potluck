@@ -1,0 +1,14 @@
+<ion-view hide-nav-bar="true" title="Intro">
+    <ion-nav-buttons side="left">
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-positive button-clear no-animation" ng-click="startApp()" ng-if="slideIndex == 5">
+            Start using MyApp
+        </button>
+    </ion-nav-buttons>
+    <ion-slide-box auto-play="false" on-slide-changed="slideChanged(index)">
+        <ion-slide ng-repeat="slide in slides">
+            <img ng-src="{{slide.image}}" width="100%">
+        </ion-slide>
+    </ion-slide-box>
+</ion-view>

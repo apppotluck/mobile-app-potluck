@@ -1,0 +1,68 @@
+<ion-view hide-nav-bar="false" title="Create Event">
+    <ion-content>
+        <div class="list">
+            <form name="invitee-form">
+                <div class="item item-input-inset">
+                    <label class="item-input-wrapper">
+                        <input type="email" name="email" ng-model="name.invitee" ng-minlength="4" placeholder="Email" required>
+                    </label>
+                    <button class="button button-small" ng-click="addInvitee($event)">
+                        Add
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="list">
+            <a class="item item-avatar" href="#" ng-repeat="item in items">
+                <img ng-src="img/thumbnail.png" width="35" height="35">
+                <h2>{{item.friendNameName}}</h2>
+                <i class="ion-close-circled" ng-click="removeInvite($index)"></i>
+            </a>
+            <button type="submit" class="button button-block button-assertive" ng-click="addFriends()">Submit</button>
+        </div>
+        <!-- <form name="signinForm" novalidate="" ng-submit="signIn(signinForm)">
+
+            <div class="list">
+              <label class="item item-input" 
+                     ng-class="{ 'has-error' : signinForm.username.$invalid}">
+                <span class="input-label">Username</span>
+                <input type="text"
+                       name="username"
+                       ng-model="user.username" 
+                       ng-minlength="5" 
+                       ng-maxlength="10" 
+                       required>
+              </label>
+
+              <div class="form-errors" ng-messages="signinForm.username.$error" ng-messages-include="templates/form-errors.html">
+                <div class="form-error" ng-message="maxlength">This field is must be less than 10 characters</div>
+              </div>
+
+              <label class="item item-input" 
+                     ng-class="{ 'has-error-lr' : signinForm.password.$invalid  && signinForm.$submitted, 'valid-lr' : signinForm.password.$valid  && signinForm.$submitted}">
+                <span class="input-label">Password</span>
+                <input type="password"
+                       name="password"
+                       ng-model="user.password" 
+                       ng-minlength="5" 
+                       ng-maxlength="25"
+                       required>
+              </label>
+              <div class="form-errors" 
+                   ng-show="signinForm.password.$error && signinForm.$submitted"
+                   ng-messages="signinForm.password.$error"
+                   ng-messages-include="templates/form-errors.html">
+              </div>
+            </div>
+            <div class="padding">
+              <button class="button button-block button-positive">
+                Sign-In
+              </button>
+              <p class="text-center">
+                <a href="#/forgot-password">Forgot password</a>
+              </p>
+            </div>
+
+          </form> -->
+    </ion-content>
+</ion-view>

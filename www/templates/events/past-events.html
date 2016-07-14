@@ -1,0 +1,17 @@
+<ion-view hide-nav-bar="false" title="Past Event">
+    <ion-content>
+        <ion-list>
+            <ion-item ng-repeat="(key, value) in pastEvents" ng-click="onEventClick()" id="pastEvent_{{value.rid}}">
+                <section class="row pot-details">
+                    <article class="col-xs-9">
+                        <h3 class="mt0">{{value.name}}</h3>
+                        <p class="pot-time col-gry">{{value.event_date}} | {{value.event_time}}</p>
+                        <p class="pot-msg col-blu"><span ng-if="currentUser.userId == value.created_by[0]">Host</span></p>
+                    </article>
+                    <article class="col-xs-3 pot-name col-gry">
+                        {{value.hostname[0]}}
+                    </article>
+                </section>
+            </ion-item>
+        </ion-list>
+</ion-view>

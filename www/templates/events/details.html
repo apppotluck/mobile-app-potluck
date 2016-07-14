@@ -1,0 +1,54 @@
+<ion-view view-title="Event Details" align-title="center">
+    <ion-nav-buttons side="left">
+        <button class="button back-button buttons button-clear header-item" ng-click="goBack()">
+            <i class="icon ion-ios-arrow-back"></i>
+        </button>
+    </ion-nav-buttons>
+    <ion-content padding=true scroll=false>
+        <div class="list card">
+            <div class="subtitle">
+                <h2>{{event[0].name}}</h2>
+            </div>
+            <div class="item item-body">
+                <p>
+                    <ul class="mt10">
+                        <li class="sprite host-ico">Host: {{event[0].hostname[0]}}</li>
+                        <li class="sprite cal-ico">{{event[0].event_date}} | {{event[0].event_time}}</li>
+                        <li class="sprite loc-ico">{{event[0].location}}</li>
+                        <li class="sprite loc-ico">{{event[0].food_type}}</li>
+                        <li class="sprite loc-ico">{{event[0].theme}}</li>
+                        <li class="sprite loc-ico">Invitees can bring thier own choice of meal.</li>
+                        <li class="sprite loc-ico">{{event[0].invitees.length}} Friends has been added.</li>
+                        <li class="sprite loc-ico">Message: {{event[0].message}}</li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+        <ion-scroll zooming="true" direction="y" style="height: 240px;">
+            <div>
+                <form ng-submit="doLogin()">
+                    <label class="item item-input item-floating-label">
+                        <span class="input-label">Menu Name</span>
+                        <input type="text" ng-model="menu.name" placeholder="Menu Name">
+                    </label>
+                    <label class="item item-input item-floating-label">
+                        <span class="input-label">Menu Description</span>
+                        <input type="text" ng-model="menu.desc" placeholder="For Ex.Good to eat for 10 people. Extra spicy">
+                    </label>
+                    <button ng-click="addToList()" class="button button-block button-assertive">
+                        Add to the List
+                    </button>
+                </form>
+                <div class="list">
+                    <a class="item item-avatar" ng-repeat="(key, value) in menuList" href="javascript:void(0)">
+                        <h2>{{value.name}}</h2>
+                        <p>{{value.desc}}</p>
+                    </a>
+                </div>
+                <button ng-click="addMenuToEvent()" class="button button-block button-assertive">
+                    Update My Menu
+                </button>
+            </div>
+        </ion-scroll>
+    </ion-content>
+</ion-view>

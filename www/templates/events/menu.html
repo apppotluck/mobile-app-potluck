@@ -1,0 +1,70 @@
+<ion-view hide-nav-bar="false" align-title="center"  title="Event Menu">
+    <ion-nav-buttons side="left">
+        <button class="button back-button buttons button-clear header-item" ng-click="goBack()">
+            <i class="icon ion-ios-arrow-back"></i> 
+        </button>
+    </ion-nav-buttons>
+    <ion-content>
+        <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()">
+        </ion-refresher>
+        <img id="tempImage" style="display:none"></img>
+        <div class="list" ng-repeat="menu in eventMenuArray | orderBy:'-created_date'" id="menu_{{menu.rid}}">
+            <a class="item" href="#">
+                <span class="item-note">
+                    <label ng-if="currentUser.userId == menu.added_by[0]">You</label>
+                    <label ng-if="currentUser.userId !== menu.added_by[0]">{{menu.user[0]}}</label> 
+                </span>
+                <h2>{{menu.name}}</h2>
+                <p>{{menu.description}}</p>
+                <p>
+                    <div  style="flex-wrap: wrap;" class="row">
+                        <div class="col col-19" ng-repeat="(key,value) in menu.menuImageDetails">              
+                            <i class="ion-close-circled" ng-click="deleteImage($event,menu.rid)"></i>
+                            <img ng-show="value !== undefined" ng-src="{{value.image}}" style="width:55px;height:55px;" ng-click="showImagePreview()">
+                        </div>
+                    </div>
+                </p>    
+                <i class="ion-ios-camera-outline camera-icon" ng-click="takePhoto()"></i>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <i class="ion-paperclip choose-photon-icon" ng-click="choosePhoto()"></i>
+            </a>
+                           
+        </div>
+    </ion-content>
+</ion-view>
+<!-- <ion-view hide-nav-bar="true" title="Event Menu">
+    <ion-modal-view>
+        <ion-content>
+            <section class="container" id="popupContainer" ng-cloak>
+                <section title="click to edit" ng-click="isVisible=!isVisible" class="row pot-details" ng-repeat="menu in eventMenuArray | orderBy:'-created_date'" id="menu_{{menu.rid}}">
+                    <article class="col-xs-9">
+                        <h3 class="mt0">{{menu.name}}</h3>
+                        <p class="col-gry">{{menu.description}}</p>
+                        <p class="pot-time col-gry">{{menu.created_date | date:'medium'}}</p>
+                        <p class="pot-msg">
+                            <button type="file" ngf-select="uploadFiles($file)" accept="image/*" ngf-max-height="10000" ngf-max-size="1GB">
+                                Upload Image</button>
+                            <img ng-src={{fileInputContent}}>
+                        </p>
+                        <ul class="img-preview">
+                            <li ng-repeat="(key,value) in menu.menuImageDetails">
+                                <img ng-click="showImagePreview()" width="35px" height="35px" ng-src="/assets/uploads/{{value.image}}">
+                                <span ng-click="deleteImage($event,menu.rid)"><img width="15px" height="15px" src="/assets/images/trash.png"></span>
+                            </li>
+                            <div class="clear"></div>
+                        </ul>
+                        <!-- <div ng-show="isVisible" class="check-element animate-show" id="edit_menu_{{menu.rid}}">
+                 <input type="test" ng-model="menu.name">
+                 <input type="text" ng-model="menu.description">
+                 <button name="Submit" value="Update Menu" ng-click="updateMenu()">Update Menu </button>   
+            </div> -->
+<!-- </article>
+
+</section>
+<section class="row pot-details" ng-if="eventMenuArray.length == 0">
+    <div style="font-weight:bold;margin-top:6%;margin-left:38%">No menu detail</div>
+</section>
+</section>
+</ion-content>
+</ion-modal-view>
+</ion-view> --> 

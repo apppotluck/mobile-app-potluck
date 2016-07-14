@@ -1,0 +1,37 @@
+<ion-view hide-nav-bar="false" title="Create Event">
+        <ion-content>
+            <div class="list">
+                <form name="eventForm">
+                    <label class="item item-input item-floating-label">
+                        <span class="input-label">Event Name</span>
+                        <input type="text" ng-model="event.name" ng-minlength="1" ng-maxlength="100" placeholder="Event Name" required placeholder="Event Name">
+                        <span class="small">For ex. Sunday Funday</span>
+                    </label>
+                    <label class="item item-input item-floating-label">
+                        <span class="input-label">Date</span>
+                        <input type="date" ng-model="event.date" required placeholder="Date">
+                    </label>
+                    <label class="item item-input item-floating-label">
+                        <span class="input-label">Time</span>
+                        <input type="time" ng-model="event.time" required placeholder="Date">
+                    </label>
+                    <label class="item item-input item-floating-label">
+                        <span class="input-label">Type the complete address</span>
+                        <input type="text" ng-model="event.currentlocation" required placeholder="Type the complete address">
+                    </label>
+                    <ion-list>
+                          <ion-radio ng-repeat="(key, value) in foodTypeArray" ng-model="event.foodtype" ng-value="key">{{value}}</ion-radio>
+                    </ion-list>
+                    <label class="item item-input item-floating-label">
+                        <span class="input-label">Theme</span>
+                        <input type="text" ng-model="event.theme" required placeholder="Theme">
+                    </label>
+                    <label class="item item-input item-floating-label" ng-click="inviteFriends();"></span>
+                        <button class="button button-positive" ng-click="inviteFriends();">Invite Friends</button>
+                        <span class="col-gry error-msg">{{totalNumberOfFriendsInvited}} friends has been invited. <a href="#" ng-click="inviteFriends()">View</a></span>
+                    </label>
+                    <button type="submit" class="button button-block button-assertive" ng-click="createEvent()">Submit</button>
+                </form>
+            </div>
+        </ion-content>
+</ion-view>

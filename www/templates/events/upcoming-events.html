@@ -1,0 +1,30 @@
+<ion-view hide-nav-bar="false" title="Upcoming Event">
+    <ion-content>
+        <ion-list>
+            <ion-item ng-repeat="(key, value) in upcomingEvents" id="upcominguEvent_{{value.rid}}" ng-click="onEventClick()">
+                <section class="row pot-details">
+                    <article class="col-xs-9" ng-click="onEventClick()">
+                        <h3 class="mt0">{{value.name}}</h3>
+                        <p class="pot-time col-gry">{{value.event_date}} | {{value.event_time}}</p>
+                        <p class="pot-msg col-blu"><span ng-if="currentUser.userId == value.created_by">Host</span></p>
+                        <p class="pot-msg col-red" ng-if="value.declined_event">You've rejected the invitation</p>
+                        <p class="pot-msg col-grn" ng-if="value.accepted_event">You've accepted the invitation</p>
+                        <p class="pot-msg col-blu" ng-if="value.may_be_accepted_event">You may be join the event</p>
+                    </article>
+                    <article class="col-xs-3 pot-name col-gry">
+                        {{value.created_user}}
+                    </article>
+                </section>
+                <section class="col-xs-12 p0 pop-confirm" ng-if="!value.accepted_event && !value.declined_event && !value.may_be_accepted_event && currentUser.userId != value.created_by">
+                    <article class="col-xs-9">
+                        <button class="button button-balanced" ng-click="eventAcceptence(1)" value="Yes">Yes</button>
+                        <button class="button button-assertive" ng-click="eventAcceptence(2)" value="No">No</button>
+                        <button class="button button-positive" ng-click="eventAcceptence(3)" value="May Be">May Be</button>
+                    </article>
+                </section>
+            </ion-item>
+        </ion-list>
+        <section class="row pot-details" ng-if="upcomingEvents.length == 0">
+            <div style="font-weight:bold;margin-top:6%;margin-left:38%">No upcoming events</div>
+        </section>
+</ion-view>

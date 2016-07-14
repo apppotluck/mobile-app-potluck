@@ -1,0 +1,144 @@
+#footer
+{
+    background-color: #f5f5f5;
+}
+
+#main
+{
+    padding-top:50px;
+}
+
+.container .credit
+{
+    margin: 20px 0;
+}
+
+.small {
+  font-size: 10px;
+  text-align: center;
+}
+
+.slider {
+  height: 100%;
+}
+.slider-slide {
+  color: #000;
+  background-color: #fff;
+  text-align: center;
+
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+  font-weight: 300;
+}
+
+#logo {
+  margin: 30px 0px;
+}
+
+#list {
+  width: 170px;
+  margin: 30px auto;
+  font-size: 20px;
+}
+#list ol {
+  margin-top: 30px;
+}
+#list ol li {
+  text-align: left;
+  list-style: decimal;
+  margin: 10px 0px;
+}
+
+
+body {
+	font-family: 'robotoregular';
+}
+ul, li {
+	list-style-type: none
+}
+/*img {height: auto; max-width: 100%}*/
+
+.pop-bg {
+	height: auto;
+	background: url(../images/bg.jpg) repeat-x center center fixed;
+	-webkit-background-size: contain;
+	-moz-background-size: contain;
+	-o-background-size: contain;
+	background-size: contain;
+}
+.logo img {
+	text-align: center;
+	width: 45%;
+	height: auto;
+	margin: 0px auto;
+	display: block;
+	margin-bottom: 5%;
+}
+.splash {
+	height: 780px;
+	background: url(../images/splash.jpg) center center fixed;
+	-webkit-background-size: contain;
+	-moz-background-size: contain;
+	-o-background-size: contain;
+	background-size: contain;
+}
+.m0 {
+	margin: 0
+}
+.p0 {
+	padding: 0
+}
+.pl0 {
+	padding-left: 0
+}
+.pr0 {
+	padding-right: 0
+}
+.mt0 {
+	margin-top: 0
+}
+.mt10 {
+	margin-top: 10px
+}
+.mb0 {
+	margin-bottom: 0 !important
+}
+.mb50 {
+	margin-bottom: 50px
+}
+.pad-left0 {
+	padding-left: 0px !important;
+}
+
+
+
+label.item.has-error {
+  border-bottom: 2px solid red;
+}
+
+label.item.has-error-lr {
+  border-left: 2px solid red;
+  border-right: 2px solid red;
+}
+
+label.item.valid-lr {
+  border-left: 2px solid green;
+  border-right: 2px solid green;
+}
+
+.form-errors {
+  margin: 5px 0
+}
+
+.form-error {
+  padding: 2px 0 2px 16px;
+  color: red;
+}
+.camera-icon {
+   font-size: 50px;
+}
+.choose-photon-icon {
+	font-size: 50px;	
+}
+.ion-close-circled:before {
+    position: absolute;
+}
